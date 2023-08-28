@@ -34,8 +34,8 @@ upstream	https://github.iu.edu/CSCI-C343-Fall2023/distribution.git (fetch)
 upstream	https://github.iu.edu/CSCI-C343-Fall2023/distribution.git (push)
 ```
 
-## To Maintain Your username-submission Repo:
-Although you'll be submitting particular files to the [Autograder page](https://autograder.luddy.indiana.edu) for each Assignment, for manual grading (when required) your username-submission repo would be referred to. So make sure to update/maintain your repo for each Assignment/Lab in accordance to their deadlines. Any updates/commits post-deadline would not be considered.
+## To Make Submissions:
+The [Autograder page](https://autograder.luddy.indiana.edu) is only for your feedback. Your assignments would be manually graded, by referring to your username-submission repo. So make sure to update your repo for each Assignment/Lab in accordance to their deadlines. Any commits post-deadline would not be considered.
 To do this:
 1. First of all, make sure that the latest changes from the Teacher's repo "distribution" have been Pulled
 ```console
@@ -49,3 +49,8 @@ foo@bar:distribution$ git add <LIST OF FILES/FOLDERS YOU WANT TO COMMIT SEPARATE
 foo@bar:distribution$ git commit -m "<MESSAGE IN DOUBLE QUOTES>"
 foo@bar:distribution$ git push origin main
 ```
+3. Create a text file on your local machine namely username_commit_hash.txt and copy YOUR FULL COMMIT URL in it. For example, the content of the file should look like this:
+```console
+https://github.iu.edu/CSCI-C343-Fall2023/username-submission/commit/26bc3f1a824151502adf56d061aaf5352d0216b2
+```
+4. Submit the text file (username_commit_hash.txt) with the latest commit hash to Canvas.
