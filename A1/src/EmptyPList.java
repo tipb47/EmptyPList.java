@@ -1,28 +1,40 @@
+
 public class EmptyPList<E> extends PList<E> {
-    static class TODO extends RuntimeException {} // TODO: remove this line when you're done
+
     public int size() {
-        throw new TODO();
+        return 0;
     }
+
     public boolean isEmpty() {
-        throw new TODO();
+        return true;
     }
+
     public boolean contains (E element) {
-        throw new TODO();
+        return false;
     }
+
     public int indexOf (E element) throws NotFoundException {
-        throw new TODO();
+        throw new NotFoundException();
     }
+
     public int lastIndexOf (E element) throws NotFoundException {
-        throw new TODO();
+        throw new NotFoundException();
     }
+
     public E get (int index) throws IndexOutOfBoundsException {
-        throw new TODO();
+        throw new IndexOutOfBoundsException();
     }
+
     public PList<E> remove (int index) throws IndexOutOfBoundsException {
-        throw new TODO();
+        throw new IndexOutOfBoundsException();
     }
+
     public PList<E> subList (int fromIndex, int toIndex) throws IndexOutOfBoundsException {
-        throw new TODO();
+        if (fromIndex==toIndex) {
+            return new EmptyPList<>();
+        } else {
+            throw new IndexOutOfBoundsException();
+        }
     }
 
     public boolean equals (Object other) {

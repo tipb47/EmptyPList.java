@@ -124,4 +124,101 @@ class PListTest {
         });
     }
 
+    @Test
+    @DisplayName("size: student tests")
+    void size() {
+        assertTimeoutPreemptively(Duration.ofSeconds(3), () -> {
+            list = makeList(1,2);
+            assertEquals(2,list.size()); //size = 2
+
+            list = makeList();
+            assertEquals(0,list.size()); //size = 0 (edge case?)
+        });
+    }
+
+    @Test
+    @DisplayName("isEmpty: student tests")
+    void isEmpty2() {
+        assertTimeoutPreemptively(Duration.ofSeconds(3), () -> {
+            list = makeList();
+            assertTrue(list.isEmpty()); //empty list
+
+            list = makeList(1,2,3,4,5);
+            assertFalse(list.isEmpty()); //non-empty list
+        });
+    }
+
+    @Test
+    @DisplayName("contains: student tests")
+    void contains2() {
+        assertTimeoutPreemptively(Duration.ofSeconds(3), () -> {
+            list = makeList(1,2,3);
+            assertFalse(list.contains(24)); //element not in list
+
+            assertTrue(list.contains(1)); //element in list
+        });
+    }
+
+    @Test
+    @DisplayName("indexOf: student tests")
+    void indexOf2() {
+        assertTimeoutPreemptively(Duration.ofSeconds(3), () -> {
+            list = makeList(1,2,3,4,5);
+            assertThrows(notFoundC, () -> list.indexOf(52)); //element not in list
+
+            assertEquals(0, list.indexOf(1)); //element in list
+        });
+    }
+
+    @Test
+    @DisplayName("lastIndexOf: student tests")
+    void lastIndexOf2() {
+        assertTimeoutPreemptively(Duration.ofSeconds(3), () -> {
+            list = makeList(1,2,3,4,5);
+            assertThrows(notFoundC, () -> list.lastIndexOf(25)); //element not found.
+
+            list = makeList(1,2,3,2,2);
+            assertEquals(4, list.lastIndexOf(2)); //ensure functionality (there are 3 2s -> indexes: 1, 3, 4)
+
+        });
+    }
+
+    @Test
+    @DisplayName("get: student tests")
+    void get2() {
+        assertTimeoutPreemptively(Duration.ofSeconds(3), () -> {
+            list = makeList(1,2,3,4,5,6,7,8,9,10);
+            assertThrows(boundsC, () -> list.get(15)); //index out of bounds.
+
+            assertEquals(3, list.get(2)); //index within bounds, return element.
+        });
+    }
+
+    @Test
+    @DisplayName("remove: student tests")
+    void remove2() {
+        assertTimeoutPreemptively(Duration.ofSeconds(3), () -> {
+            list = makeList(1,2,4,5);
+
+            assertEquals(makeList(2,4,5),list.remove(0)); //remove 1st element
+
+            assertThrows(boundsC, () -> list.remove(50)); //index out of bounds.
+        });
+    }
+
+
+    @Test
+    @DisplayName("sublist: student tests")
+    void subList2() {
+        assertTimeoutPreemptively(Duration.ofSeconds(3), () -> {
+            list = makeList(1,2,3,4,5);
+            assertThrows(boundsC, () -> list.subList(3,1)); //backwards sublist
+
+            assertThrows(boundsC, () -> list.subList(-3,3)); //out of bounds lower index
+
+            assertThrows(boundsC, () -> list.subList(0,7)); //out of bounds upper index
+
+            assertEquals(makeList(1,2),list.subList(0,2)); //ensure functionality
+        });
+    }
 }
